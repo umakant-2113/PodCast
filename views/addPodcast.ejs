@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Title-->
+    <title>Podcast</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5cc6fb9f6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header-->
+    
+    <header class="header">
+       <div class="container flex justify-between align-center">
+        <a href="/"><img src="/images/icon.png" alt="logo" /></a>
+
+      <% if(user){ %>
+          <ul class="flex justify-between align-center">
+            <a style="color: rgb(255, 255, 255);" href="/podcast/dashboard">
+              <%= user.firstName + user.lastName%>
+            </a>
+            <a style="margin-right: 0.5rem" href="/podcast"
+            >
+            <button class="btn btn-primary">
+              All Podcast
+            </button>
+            </a>
+            <a style="margin-right: 0.5rem" href="/users/logout"
+            >
+            <button class="btn btn-primary">
+              Log Out
+            </button>
+            </a>
+         </ul>
+       <% }else{ %>
+          <nav class="flex justify-between align-center">
+          <a style="margin-right: 0.5rem" href="/users/signin"
+            ><button class="btn btn-primary">Signin</button></a
+          >
+          <a href="/users/signup"
+            ><button class="btn btn-primary">Signup</button></a
+          >
+        </nav>
+       <% } %>  
+      </div>
+    </header>
+<!--Main-->
+<main class="signup container">
+  <h1>Add Poscast</h1>
+  <form action="/podcast" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Title..." />
+    <textarea
+      name="description"
+      rows="8"
+      placeholder="Description..."
+    ></textarea>
+    <input
+      type="text"
+      name="categories"
+      placeholder="Categories(Separated by commas)..."
+    />
+
+    <label for="cover">Cover Image</label>
+    <input id="cover" type="file" name="cover" placeholder="Cover..." />
+
+    <label for="audioTrack">Podcast Track</label>
+    <input id="audioTrack" type="file" name="audioTrack" placeholder="Track..." />
+    <input class="submit" type="submit" value="Add Podcast" />
+  </form>
+</main>
+
+<% include partials/footer %>

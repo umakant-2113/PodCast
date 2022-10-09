@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Title-->
+    <title>Podcast</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5cc6fb9f6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header-->
+
+    <header class="header">
+      <div class="container flex justify-between align-center">
+        <a href="/"><img src="/images/icon.png" alt="logo" /></a>
+
+        <% if(user){ %>
+        <ul class="flex justify-between align-center">
+          <a style="color: rgb(255, 255, 255)" href="/podcast/dashboard">
+            <%= user.firstName + user.lastName%>
+          </a>
+
+          <a style="margin-right: 0.5rem" href="/podcast">
+            <button class="btn btn-primary">Go Back</button>
+          </a>
+          <a style="margin-right: 0.5rem" href="/podcast/new">
+            <button class="btn btn-primary">Add Podcast</button>
+          </a>
+          <a style="margin-right: 0.5rem" href="/users/logout">
+            <button class="btn btn-primary">Log Out</button>
+          </a>
+        </ul>
+        <% }else{ %>
+        <nav class="flex justify-between align-center">
+          <a style="margin-right: 0.5rem" href="/users/signin"
+            ><button class="btn btn-primary">Signin</button></a
+          >
+          <a href="/users/signup"
+            ><button class="btn btn-primary">Signup</button></a
+          >
+        </nav>
+        <% } %>
+      </div>
+    </header>
+
+    <!--Main-->
+    <main class="podcast container">
+      <section
+        style="margin: 1rem auto"
+        class="flex justify-between align-start"
+      >
+        <div class="flex-48">
+          <h2><%= podcast.title %></h2>
+          <cite
+            >~<%= podcast.author.firstName +' ' + podcast.author.lastName %></cite
+          >
+          <p class="desc"><%= podcast.description %></p>
+          <audio controls>
+            <source
+              src="/uploads/tracks/<%= podcast.audioTrack %>"
+              type="audio/ogg"
+            />
+          </audio>
+        </div>
+        <div class="flex-48 img-container">
+          <img
+            src="/uploads/covers/<%= podcast.cover %>"
+            alt="Podcast"
+          />
+        </div>
+      </section>
+
+      <section
+        style="
+          width: 50%;
+          border-top: 2px solid rgba(0, 255, 0, 0.5);
+          padding-top: 1rem;
+        "
+        class="comments"
+      >
+        <div
+          style="
+            width: 100%;
+            height: 2rem;
+            background-color: rgba(0, 255, 0, 0.5);
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+          "
+          class="flex justify-between align-center"
+        >
+          <p>Comment</p>
+          <div>
+            <cite style="font-size: 0.9rem; color: midnightblue">~Name</cite>
+            <a style="color: #216b42" href="/comments/edit/"
+              ><i class="far fa-edit"></i
+            ></a>
+            <a style="color: #216b42" href="/comments/delete/"
+              ><i class="far fa-trash-alt"></i
+            ></a>
+          </div>
+        </div>
+
+        <form
+          style="
+            width: 100%;
+            padding: 0.25rem;
+            background-color: rgb(87, 188, 162);
+            margin-top: 1rem;
+          "
+          action="/products/comments/"
+          method="POST"
+        >
+          <input
+            style="width: 88%; height: 1.5rem"
+            name="content"
+            type="text"
+            placeholder="Add Comment Here.."
+          />
+          <button
+            style="width: 10.5%; height: 1.5rem; color: #216b42"
+            type="submit"
+          >
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <% include partials/footer %>
+  </body>
+</html>

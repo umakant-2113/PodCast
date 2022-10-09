@@ -1,0 +1,15 @@
+<% include partials/header %>
+<!--Main-->
+<main class="signup container">
+  <h1>Sign Up</h1>
+  <form action="/users/signup" method="POST">
+    <input type="text" name="firstName" placeholder="First Name..." />
+    <input type="text" name="lastName" placeholder="Last Name..." />
+    <input type="text" name="email" placeholder="Email..." />
+    <input type="text" name="phone" placeholder="Phone..." />
+    <input type="password" name="password" placeholder="Password..." />
+    <input class="submit" type="submit" value="Sign Up" />
+  </form>
+</main>
+
+<% include partials/footer %>

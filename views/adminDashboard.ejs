@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Title-->
+    <title>Podcast</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5cc6fb9f6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header-->
+    <header class="header">
+      <div class="container flex justify-between align-center">
+        <a href="/"><img src="/images/icon.png" alt="logo" /></a>
+
+      <% if(user){ %>  
+        <nav>
+
+          <ul class="flex justify-between align-center">
+              <a style="color: rgb(255, 255, 255);" href="/podcast/dashboard">
+              <%= user.firstName + user.lastName%>
+              </a>
+              <a href="/podcast/pending">
+              <button class="btn btn-primary">Pending Verifications</button></a
+            >
+            <a href="/users/upgradeRequest">
+              <button class="btn btn-primary">Pending Upgrades</button></a
+            >
+            <a href="/podcast/new">
+              <button class="btn btn-primary">Add Podcast</button></a
+            >
+            <a href="/users/logout">
+              <button class="btn btn-primary">Log out</button></a
+            >
+          </ul>
+        </nav>
+        <% }else{ %>
+           <nav class="flex justify-between align-center">
+          <a style="margin-right: 0.5rem" href="/users/signin"
+            ><button class="btn btn-primary">Signin</button></a
+          >
+          <a href="/users/signup"
+            ><button class="btn btn-primary">Signup</button></a
+          >
+        </nav>
+       <% } %>  
+      </div>
+    </header>
+
+    <main class="dashboard container">
+      <h1>Podcasts</h1>
+    <section class="podcasts">
+       <% if(podcasts && podcasts.length){  %>
+        <% podcasts.map(podcast=>{   %>
+
+    <article>
+      <h3><%= podcast.title %></h3>
+      <cite>~<%= podcast.author.firstName + ' ' + podcast.author.lastName %></cite>
+      <p>
+        <%= podcast.description %>
+      </p>
+        <a href="/podcast/<%= podcast.id %>"><button class="btn btn-secondary">Show Podcast</button>
+        </a>
+         <a href="/podcast/<%= podcast.id %>/delete"><button class="btn btn-secondary">Delete podcast</button>
+        </a>
+        </article>
+    <% })} else{  %>
+    <h2 style="text-align: center;margin:2rem 0rem; font-size:  3rem;color: gray; font-style:italic ;">
+            No podcast Present
+    </h2>
+     <% } %>
+      </section>
+       </main>
+    <% include partials/footer %>
+</body>
+</html>

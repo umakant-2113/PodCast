@@ -1,0 +1,641 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.justify-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.justify-start {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.justify-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.justify-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.justify-evenly {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.align-start {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.align-end {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.align-between {
+  -webkit-box-align: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
+}
+
+.align-around {
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
+}
+
+.align-evenly {
+  -webkit-box-align: space-evenly;
+      -ms-flex-align: space-evenly;
+          align-items: space-evenly;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex-20 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 20%;
+          flex: 0 1 20%;
+}
+
+.flex-25 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 25%;
+          flex: 0 1 25%;
+}
+
+.flex-30 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
+}
+
+.flex-32 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 32%;
+          flex: 0 1 32%;
+}
+
+.flex-40 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+}
+
+.flex-48 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 48%;
+          flex: 0 1 48%;
+}
+
+.flex-50 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+
+.flex-60 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 60%;
+          flex: 0 1 60%;
+}
+
+.flex-100 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+}
+
+/*Global*/
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 1480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.padding {
+  padding: 5rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Images */
+.font-0 {
+  font-size: 0;
+}
+
+.full-width {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.66rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin: 0.35rem;
+  outline: none;
+  border: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 255, 255, 0.6), -1px -1px 2px rgba(0, 255, 255, 0.6);
+          box-shadow: 2px 2px 4px rgba(0, 255, 255, 0.6), -1px -1px 2px rgba(0, 255, 255, 0.6);
+}
+
+.btn-primary {
+  color: black;
+  background-color: #57bca2;
+}
+
+.btn-secondary {
+  color: black;
+  background-color: cyan;
+  padding: 0.4rem 0.8rem;
+}
+
+.btn-secondary:hover {
+  padding: 0.36rem 0.8rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid black;
+}
+
+.header {
+  background-color: black;
+  border-bottom: 3px solid #57bca2;
+  padding: 0.5rem 0 0.3rem 0;
+}
+
+.header img {
+  width: 3rem;
+  height: 3.2rem;
+}
+
+.home {
+  height: 91.35vh;
+  background: url("/images/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.home .img-box {
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 3px solid #57bca2;
+  border-radius: 50%;
+  width: 17rem;
+  height: 17rem;
+  margin: 2rem;
+}
+
+.home h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  color: #57bca2;
+  text-shadow: 4px 4px 6px black;
+}
+
+.signup {
+  text-align: center;
+}
+
+.signup h1 {
+  color: #57bca2;
+  font-weight: 600;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.signup p {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: red;
+  font-style: italic;
+}
+
+.signup form {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  margin: 0 auto;
+  width: 40%;
+  padding: 1.5rem;
+  border: 1px solid black;
+}
+
+.signup form input {
+  width: 100%;
+  border: 1px solid black;
+  background-color: white;
+  height: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+}
+
+.signup form input:focus {
+  border: none;
+  outline: 2px solid #57bca2;
+}
+
+.signup form input::-webkit-input-placeholder {
+  color: black;
+}
+
+.signup form input:-ms-input-placeholder {
+  color: black;
+}
+
+.signup form input::-ms-input-placeholder {
+  color: black;
+}
+
+.signup form input::placeholder {
+  color: black;
+}
+
+.signup form textarea {
+  width: 100%;
+  border: 1px solid black;
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+}
+
+.signup form textarea:focus {
+  border: none;
+  outline: 2px solid #57bca2;
+}
+
+.signup form textarea::-webkit-input-placeholder {
+  color: black;
+  font-size: 0.65rem;
+}
+
+.signup form textarea:-ms-input-placeholder {
+  color: black;
+  font-size: 0.65rem;
+}
+
+.signup form textarea::-ms-input-placeholder {
+  color: black;
+  font-size: 0.65rem;
+}
+
+.signup form textarea::placeholder {
+  color: black;
+  font-size: 0.65rem;
+}
+
+.signup form select {
+  width: 100%;
+  border: 1px solid black;
+  background-color: white;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.signup form select:focus {
+  border: none;
+  outline: 2px solid #57bca2;
+}
+
+.signup form select option {
+  background: #57bca2;
+  padding: 1rem;
+}
+
+.signup form select option:hover {
+  background: #57bca2;
+}
+
+.signup form .submit {
+  margin-bottom: 0;
+}
+
+.signup form .submit:hover {
+  border: 2px solid #57bca2;
+  background-color: #57bca2;
+}
+
+.signup form label {
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.signup form label:hover {
+  color: #57bca2;
+}
+
+.signup form:hover {
+  border: 1px solid #57bca2;
+}
+
+.dashboard h1 {
+  text-align: center;
+  color: #57bca2;
+  font-weight: 600;
+}
+
+.dashboard article {
+  border-bottom: 2px solid #57bca2;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard button {
+  margin-top: 1rem;
+  margin-left: 0;
+}
+
+.dashboard cite {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.podcast h2 {
+  font-size: 3rem;
+  color: #57bca2;
+  font-weight: 600;
+}
+
+.podcast cite {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.podcast .desc {
+  height: 15rem;
+  overflow: auto;
+}
+
+.podcast .desc::-webkit-scrollbar {
+  width: 10px;
+}
+
+.podcast .desc::-webkit-scrollbar-track {
+  background: #c8c8c8;
+}
+
+.podcast .desc::-webkit-scrollbar-thumb {
+  background-color: #57bca2;
+  border-radius: 20px;
+  border: 2px solid #c8c8c8;
+}
+
+.podcast audio {
+  width: 100%;
+  color: #57bca2;
+  margin-top: 1rem;
+  height: 30px;
+}
+
+.podcast audio::-webkit-media-controls-panel {
+  background-color: #57bca2;
+}
+
+.podcast audio:focus {
+  outline: none;
+}
+
+.podcast .img-container {
+  overflow: hidden;
+  height: 25rem;
+}
+
+.podcast .img-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid #57bca2;
+}
+/*# sourceMappingURL=style.css.map */
